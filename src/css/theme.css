@@ -1,0 +1,24 @@
+@theme {
+	/* Neutral Colors */
+	--color-neutral-50: hsl(200, 60%, 99%);
+	--color-neutral-100: hsl(0, 0%, 93%);
+	--color-neutral-200: hsl(217, 61%, 90%);
+	--color-neutral-300: hsl(0, 0%, 78%);
+	--color-neutral-600: hsl(226, 11%, 37%);
+	--color-neutral-700: hsl(225, 23%, 24%);
+	--color-neutral-800: hsl(226, 25%, 17%);
+	--color-neutral-900: hsl(227, 75%, 14%);
+
+	/* Red Colors */
+	--color-red-400: hsl(3, 86%, 64%);
+	--color-red-500: hsl(3, 71%, 56%);
+	--color-red-700: hsl(3, 77%, 44%);
+
+	/* Light Gradinet */
+	--color-lg-start: #ebf2fc;
+	--color-lg-end: #eef8f9;
+
+	/* Dark Gradinet */
+	--color-dg-start: #040918;
+	--color-dg-end: #091540;
+}

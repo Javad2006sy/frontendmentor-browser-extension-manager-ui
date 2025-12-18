@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "./css/theme.css";
+@import "./css/utilities.css";
+
+/* dark-mode variant */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* custom components */
+@layer base {
+	main {
+		@apply h-screen;
+	}
+}
