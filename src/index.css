@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "./css/theme.css";
+@import "./css/utilities.css";
+
+/* dark-mode variant */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* base styles */
+@layer base {
+    main {
+        @apply h-screen transition-colors duration-200 ease-out;
+    }
+}
+
+@layer components {
+    .btn {
+        @apply cursor-pointer rounded-3xl border-2 border-neutral-200 bg-neutral-50 px-4 py-2 text-neutral-950 transition-colors duration-200 hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-current focus-visible:ring-offset-2 focus-visible:outline-none dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-50 dark:hover:bg-neutral-700;
+    }
+}

@@ -1,0 +1,8 @@
+/* Gradient Utilities */
+@utility gradient-light {
+	@apply bg-linear-to-b from-lg-start to-lg-end;
+}
+
+@utility gradient-dark {
+	@apply bg-linear-to-b from-dg-start to-dg-end;
+}
