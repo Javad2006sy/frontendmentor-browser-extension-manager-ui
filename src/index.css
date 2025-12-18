@@ -8,7 +8,7 @@
 /* base styles */
 @layer base {
   main {
-    @apply h-screen;
+    @apply h-screen transition-colors duration-200 ease-out;
   }
 }
 

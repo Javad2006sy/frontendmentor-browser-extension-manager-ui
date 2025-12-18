@@ -5,28 +5,20 @@ import Header from "./components/Header";
 import { Button } from "./components/base";
 
 const App = () => {
-	const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState(loadTheme() ?? "dark");
 
-	function handleThemeToggle() {
-		const nextTheme = theme === "light" ? "dark" : "light";
-		setTheme(nextTheme);
-		saveTheme(nextTheme);
-	}
+  function handleThemeToggle() {
+    const nextTheme = theme === "light" ? "dark" : "light";
+    setTheme(nextTheme);
+    saveTheme(nextTheme);
+  }
 
-	useEffect(() => {
-		const appTheme = loadTheme();
-
-		if (appTheme) {
-			setTheme(appTheme);
-		}
-	}, []);
-
-	return (
-		<main className="gradient-light dark:gradient-dark" data-theme={theme}>
-			{/* <Header theme={theme} onThemeToggle={handleThemeToggle} /> */}
-			<Button onClick={handleThemeToggle}>Click</Button>
-		</main>
-	);
+  return (
+    <main className="gradient-light dark:gradient-dark" data-theme={theme}>
+      {/* <Header theme={theme} onThemeToggle={handleThemeToggle} /> */}
+      <Button onClick={handleThemeToggle}>Click</Button>
+    </main>
+  );
 };
 
 export default App;
