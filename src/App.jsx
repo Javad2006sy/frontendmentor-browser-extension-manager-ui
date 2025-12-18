@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { loadTheme, saveTheme } from "./utils.js";
 
 import Header from "./components/Header";
+import { Button } from "./components/base";
 
 const App = () => {
 	const [theme, setTheme] = useState("dark");
@@ -22,7 +23,8 @@ const App = () => {
 
 	return (
 		<main className="gradient-light dark:gradient-dark" data-theme={theme}>
-			<Header theme={theme} onThemeToggle={handleThemeToggle} />
+			{/* <Header theme={theme} onThemeToggle={handleThemeToggle} /> */}
+			<Button onClick={handleThemeToggle}>Click</Button>
 		</main>
 	);
 };
