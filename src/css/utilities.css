@@ -1,8 +1,13 @@
+/* Flex Utilities */
+@utility flex-center {
+    @apply flex items-center justify-center;
+}
+
 /* Gradient Utilities */
 @utility gradient-light {
-	@apply bg-linear-to-b from-lg-start to-lg-end;
+    @apply from-lg-start to-lg-end bg-linear-to-b;
 }
 
 @utility gradient-dark {
-	@apply bg-linear-to-b from-dg-start to-dg-end;
+    @apply from-dg-start to-dg-end bg-linear-to-b;
 }

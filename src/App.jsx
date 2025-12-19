@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { loadTheme, saveTheme } from "./utils.js";
 
 import Header from "./components/Header";
+import ExtensionList from "./components/ExtensionList.jsx";
 
 const App = () => {
     const [theme, setTheme] = useState(loadTheme() ?? "dark");
@@ -16,6 +17,7 @@ const App = () => {
         <main className="gradient-light dark:gradient-dark" data-theme={theme}>
             <div className="mx-auto w-full max-w-360">
                 <Header theme={theme} onThemeToggle={handleThemeToggle} />
+                <ExtensionList />
             </div>
         </main>
     );
