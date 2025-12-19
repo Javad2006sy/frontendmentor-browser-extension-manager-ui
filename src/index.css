@@ -18,4 +18,12 @@
     .filter-btn.filter-btn-active {
         @apply border-red-400 bg-red-400 text-neutral-900 hover:border-red-500 hover:bg-red-500;
     }
+
+    .switcher {
+        @apply relative h-7.5 w-15 cursor-pointer appearance-none rounded-full bg-neutral-400 transition-colors duration-300 ease-out before:absolute before:top-[50%] before:left-[3px] before:h-[23px] before:w-[23px] before:translate-y-[-50%] before:rounded-full before:bg-neutral-50 before:transition-all before:duration-200 before:ease-out dark:bg-neutral-700;
+    }
+
+    .switcher.switcher-active {
+        @apply bg-red-400 before:left-[calc(100%-26px)];
+    }
 }
