@@ -1,11 +1,49 @@
 import { useState } from "react";
 
 import { FilterButton } from "./base";
+import ExtensionCard from "./ExtensionCard";
 
-const ExtensionList = () => {
+const ExtensionList = ({ extensions, onExtensionManagement }) => {
     const [filter, setFilter] = useState("all");
 
     const handleFilterActivation = (value) => setFilter(value);
+
+    let filteredExtensions;
+
+    switch (filter) {
+        case "all": {
+            filteredExtensions = [...extensions];
+            break;
+        }
+
+        case "active": {
+            filteredExtensions = extensions.filter((ext) => ext.isActive);
+            break;
+        }
+
+        case "inactive": {
+            filteredExtensions = extensions.filter((ext) => !ext.isActive);
+            break;
+        }
+    }
+
+    function handleExtensionActivation(activeState, id) {
+        const extensionsUpdate = extensions.map((ext) => {
+            if (ext.id !== id) return ext;
+
+            return {
+                ...ext,
+                isActive: activeState,
+            };
+        });
+
+        onExtensionManagement(extensionsUpdate);
+    }
+
+    function handleExtensionRemove(id) {
+        const extensionsUpdate = extensions.filter((ext) => id !== ext.id);
+        onExtensionManagement(extensionsUpdate);
+    }
 
     return (
         <div className="mt-12 flex flex-wrap items-center justify-between">
@@ -32,6 +70,17 @@ const ExtensionList = () => {
                 >
                     Inactive
                 </FilterButton>
+            </div>
+
+            <div className="mt-7 grid w-full grid-cols-3 gap-3">
+                {filteredExtensions.map((item) => (
+                    <ExtensionCard
+                        key={item.id}
+                        extension={item}
+                        onActivation={handleExtensionActivation}
+                        onRemove={handleExtensionRemove}
+                    />
+                ))}
             </div>
         </div>
     );

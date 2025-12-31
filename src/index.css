@@ -5,10 +5,17 @@
 /* dark-mode variant */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* base styles */
+@layer base {
+    html {
+        @apply gradient-light dark:gradient-dark bg-cover bg-fixed bg-no-repeat transition-colors duration-200 ease-out;
+    }
+}
+
 /* component styles */
 @layer components {
     main {
-        @apply h-screen py-7 transition-colors duration-200 ease-out;
+        @apply py-7;
     }
 
     .btn {
@@ -17,5 +24,25 @@
 
     .filter-btn.filter-btn-active {
         @apply border-red-400 bg-red-400 text-neutral-900 hover:border-red-500 hover:bg-red-500;
+    }
+
+    .switcher {
+        @apply relative h-7.5 w-15 cursor-pointer appearance-none rounded-full bg-neutral-400 transition-colors duration-300 ease-out before:absolute before:top-[50%] before:left-[3px] before:h-[23px] before:w-[23px] before:translate-y-[-50%] before:rounded-full before:bg-neutral-50 before:transition-all before:duration-200 before:ease-out dark:bg-neutral-700;
+    }
+
+    .switcher.switcher-active {
+        @apply bg-red-400 before:left-[calc(100%-26px)];
+    }
+
+    .extension-card {
+        @apply flex flex-wrap items-center justify-between gap-12 rounded-2xl border-2 border-neutral-300 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-50;
+    }
+
+    .extension-card .content-box {
+        @apply flex w-full items-start justify-start gap-4;
+    }
+
+    .extension-card .title-box {
+        @apply flex flex-col items-start justify-center;
     }
 }

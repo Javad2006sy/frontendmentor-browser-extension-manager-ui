@@ -1,3 +1,5 @@
+const EXTENSIONS_SRC = "/data.json";
+
 // Theme Functions
 export const loadTheme = () => {
     try {
@@ -19,3 +21,21 @@ export const saveTheme = (theme) => {
         console.warn("Failed to save theme to localStorage", error);
     }
 };
+
+// Extensions Loader
+export async function fetchExtensions() {
+    try {
+        const data = await fetch(EXTENSIONS_SRC);
+        const extensions = await data.json();
+
+        return extensions;
+    } catch (error) {
+        console.warn("Failed to load extensions:", error);
+        return [];
+    }
+}
+
+// a helper to produce extension's image URL
+export function getImageUrl(baseUrl) {
+    return new URL(baseUrl, import.meta.url).href;
+}
