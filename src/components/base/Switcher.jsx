@@ -1,4 +1,4 @@
-const Switcher = ({ active, onToggle = null }) => {
+const Switcher = ({ active, onToggle = () => {} }) => {
     return (
         <input
             type="checkbox"
