@@ -1,11 +1,25 @@
 import { useState } from "react";
 
 import { FilterButton } from "./base";
+import ExtensionCard from "./ExtensionCard";
 
-const ExtensionList = () => {
+const ExtensionList = ({ extensions, onExtensionManagement }) => {
     const [filter, setFilter] = useState("all");
 
     const handleFilterActivation = (value) => setFilter(value);
+
+    function handleExtensionActivation(activeState, id) {
+        const extensionsUpdate = extensions.map((ext) => {
+            if (ext.id !== id) return ext;
+
+            return {
+                ...ext,
+                isActive: activeState,
+            };
+        });
+
+        onExtensionManagement(extensionsUpdate);
+    }
 
     return (
         <div className="mt-12 flex flex-wrap items-center justify-between">
@@ -32,6 +46,16 @@ const ExtensionList = () => {
                 >
                     Inactive
                 </FilterButton>
+            </div>
+
+            <div className="w-full">
+                {extensions.map((item) => (
+                    <ExtensionCard
+                        key={item.id}
+                        extension={item}
+                        onActivation={handleExtensionActivation}
+                    />
+                ))}
             </div>
         </div>
     );
