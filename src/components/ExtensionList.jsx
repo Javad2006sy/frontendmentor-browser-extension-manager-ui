@@ -72,7 +72,7 @@ const ExtensionList = ({ extensions, onExtensionManagement }) => {
                 </FilterButton>
             </div>
 
-            <div className="w-full">
+            <div className="mt-7 grid w-full grid-cols-3 gap-3">
                 {filteredExtensions.map((item) => (
                     <ExtensionCard
                         key={item.id}

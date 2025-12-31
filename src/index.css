@@ -33,4 +33,16 @@
     .switcher.switcher-active {
         @apply bg-red-400 before:left-[calc(100%-26px)];
     }
+
+    .extension-card {
+        @apply flex flex-wrap items-center justify-between gap-12 rounded-2xl border-2 border-neutral-300 bg-neutral-50 p-4 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-50;
+    }
+
+    .extension-card .content-box {
+        @apply flex w-full items-start justify-start gap-4;
+    }
+
+    .extension-card .title-box {
+        @apply flex flex-col items-start justify-center;
+    }
 }
