@@ -25,6 +25,10 @@ const App = () => {
         loadExtensions();
     }, []);
 
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+    }, [theme]);
+
     function handleThemeToggle() {
         const nextTheme = theme === "light" ? "dark" : "light";
         setTheme(nextTheme);
@@ -36,7 +40,7 @@ const App = () => {
     }
 
     return (
-        <main className="gradient-light dark:gradient-dark" data-theme={theme}>
+        <main>
             <div className="mx-auto w-full max-w-360">
                 <Header theme={theme} onThemeToggle={handleThemeToggle} />
                 <ExtensionList

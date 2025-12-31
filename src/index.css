@@ -5,10 +5,17 @@
 /* dark-mode variant */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
+/* base styles */
+@layer base {
+    html {
+        @apply gradient-light dark:gradient-dark bg-cover bg-fixed bg-no-repeat transition-colors duration-200 ease-out;
+    }
+}
+
 /* component styles */
 @layer components {
     main {
-        @apply py-7 transition-colors duration-200 ease-out;
+        @apply py-7;
     }
 
     .btn {
