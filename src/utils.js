@@ -1,4 +1,4 @@
-const EXTENSIONS_SRC = "./data.json";
+const EXTENSIONS_SRC = "/data.json";
 
 // Theme Functions
 export const loadTheme = () => {
