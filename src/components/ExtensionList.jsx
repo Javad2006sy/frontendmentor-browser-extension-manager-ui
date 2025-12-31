@@ -21,6 +21,11 @@ const ExtensionList = ({ extensions, onExtensionManagement }) => {
         onExtensionManagement(extensionsUpdate);
     }
 
+    function handleExtensionRemove(id) {
+        const extensionsUpdate = extensions.filter((ext) => id !== ext.id);
+        onExtensionManagement(extensionsUpdate);
+    }
+
     return (
         <div className="mt-12 flex flex-wrap items-center justify-between">
             <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-50">
@@ -54,6 +59,7 @@ const ExtensionList = ({ extensions, onExtensionManagement }) => {
                         key={item.id}
                         extension={item}
                         onActivation={handleExtensionActivation}
+                        onRemove={handleExtensionRemove}
                     />
                 ))}
             </div>

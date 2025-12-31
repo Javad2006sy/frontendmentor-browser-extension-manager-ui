@@ -1,6 +1,6 @@
 import { Button, Switcher } from "./base";
 
-const ExtensionCard = ({ extension, onActivation }) => {
+const ExtensionCard = ({ extension, onActivation, onRemove }) => {
     return (
         <div className="extension-card">
             <div>
@@ -10,7 +10,7 @@ const ExtensionCard = ({ extension, onActivation }) => {
                     <p>{extension.description}</p>
                 </div>
             </div>
-            <Button>Remove</Button>
+            <Button onClick={() => onRemove(extension.id)}>Remove</Button>
             <Switcher
                 active={extension.isActive}
                 onToggle={(e) => onActivation(e.target.checked, extension.id)}
