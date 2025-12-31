@@ -8,6 +8,25 @@ const ExtensionList = ({ extensions, onExtensionManagement }) => {
 
     const handleFilterActivation = (value) => setFilter(value);
 
+    let filteredExtensions;
+
+    switch (filter) {
+        case "all": {
+            filteredExtensions = [...extensions];
+            break;
+        }
+
+        case "active": {
+            filteredExtensions = extensions.filter((ext) => ext.isActive);
+            break;
+        }
+
+        case "inactive": {
+            filteredExtensions = extensions.filter((ext) => !ext.isActive);
+            break;
+        }
+    }
+
     function handleExtensionActivation(activeState, id) {
         const extensionsUpdate = extensions.map((ext) => {
             if (ext.id !== id) return ext;
@@ -54,7 +73,7 @@ const ExtensionList = ({ extensions, onExtensionManagement }) => {
             </div>
 
             <div className="w-full">
-                {extensions.map((item) => (
+                {filteredExtensions.map((item) => (
                     <ExtensionCard
                         key={item.id}
                         extension={item}
