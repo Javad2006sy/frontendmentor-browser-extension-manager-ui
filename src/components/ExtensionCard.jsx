@@ -15,7 +15,7 @@ const ExtensionCard = ({ extension, onActivation, onRemove }) => {
             <Button onClick={() => onRemove(extension.id)}>Remove</Button>
             <Switcher
                 active={extension.isActive}
-                onToggle={(e) => onActivation(e.target.checked, extension.id)}
+                onToggle={(isChecked) => onActivation(isChecked, extension.id)}
             />
         </div>
     );
