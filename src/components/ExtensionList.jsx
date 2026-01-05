@@ -27,6 +27,13 @@ const ExtensionList = ({ extensions, onExtensionManagement }) => {
         }
     }
 
+    /**
+     * Update an extension's active state and propagate the updated extensions array.
+     *
+     * Creates an updated extensions array with the extension matching `id` set to `isActive = activeState`, then calls `onExtensionManagement` with the new array.
+     * @param {boolean} activeState - Desired `isActive` value for the matching extension.
+     * @param {string|number} id - Identifier of the extension to update.
+     */
     function handleExtensionActivation(activeState, id) {
         const extensionsUpdate = extensions.map((ext) => {
             if (ext.id !== id) return ext;
@@ -40,6 +47,11 @@ const ExtensionList = ({ extensions, onExtensionManagement }) => {
         onExtensionManagement(extensionsUpdate);
     }
 
+    /**
+     * Remove the extension matching the provided id from the current list and pass the updated list to `onExtensionManagement`.
+     *
+     * @param {string|number} id - The id of the extension to remove.
+     */
     function handleExtensionRemove(id) {
         const extensionsUpdate = extensions.filter((ext) => id !== ext.id);
         onExtensionManagement(extensionsUpdate);
